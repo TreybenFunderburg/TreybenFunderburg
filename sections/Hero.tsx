@@ -123,9 +123,9 @@ function ParticleCanvas() {
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const wordVariants = {
-  hidden: { y: "110%", opacity: 0 },
+  hidden: { y: 32, opacity: 0 },
   visible: (i: number) => ({
-    y: "0%",
+    y: 0,
     opacity: 1,
     transition: {
       duration: 0.9,
@@ -141,32 +141,31 @@ function AnimatedHeading({ text }: { text: string }) {
 
   return (
     <div
-      className="font-display font-extrabold leading-none tracking-tight"
+      className="font-display font-extrabold tracking-tight"
       style={{
-        fontSize: "clamp(3rem, 9vw, 8rem)",
+        fontSize: "clamp(2.75rem, 8vw, 7.5rem)",
         fontFamily: "var(--font-syne)",
         color: "var(--text-primary)",
+        lineHeight: 1.05,
       }}
     >
       {lines.map((line, li) => (
-        <div key={li} className="overflow-hidden">
-          <div className="flex flex-wrap gap-x-4">
-            {line.split(" ").map((word) => {
-              const idx = wordIndex++;
-              return (
-                <motion.span
-                  key={idx}
-                  custom={idx}
-                  variants={wordVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
-              );
-            })}
-          </div>
+        <div key={li} className="flex flex-wrap gap-x-4">
+          {line.split(" ").map((word) => {
+            const idx = wordIndex++;
+            return (
+              <motion.span
+                key={idx}
+                custom={idx}
+                variants={wordVariants}
+                initial="hidden"
+                animate="visible"
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            );
+          })}
         </div>
       ))}
     </div>
