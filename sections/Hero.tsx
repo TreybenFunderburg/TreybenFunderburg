@@ -123,13 +123,12 @@ function ParticleCanvas() {
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const wordVariants = {
-  hidden: { y: 32, opacity: 0 },
+  hidden: { opacity: 0 },
   visible: (i: number) => ({
-    y: 0,
     opacity: 1,
     transition: {
-      duration: 0.9,
-      delay: i * 0.12,
+      duration: 0.8,
+      delay: i * 0.15,
       ease,
     },
   }),
@@ -143,7 +142,7 @@ function AnimatedHeading({ text }: { text: string }) {
     <div
       className="font-display font-extrabold tracking-tight"
       style={{
-        fontSize: "clamp(2.75rem, 8vw, 7.5rem)",
+        fontSize: "clamp(2.5rem, 7vw, 6.5rem)",
         fontFamily: "var(--font-syne)",
         color: "var(--text-primary)",
         lineHeight: 1.05,
@@ -160,7 +159,7 @@ function AnimatedHeading({ text }: { text: string }) {
                 variants={wordVariants}
                 initial="hidden"
                 animate="visible"
-                className="inline-block"
+                style={{ display: "inline-block" }}
               >
                 {word}
               </motion.span>
@@ -187,13 +186,13 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center"
       style={{ background: "var(--bg)" }}
     >
       {/* Particle Canvas */}
       <ParticleCanvas />
 
-      {/* Gradient Blobs */}
+      {/* Gradient Blobs — overflow-hidden lives here, not on the section */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="gradient-blob absolute"
@@ -250,7 +249,7 @@ export function Hero() {
 
           {/* Sub-headline */}
           <motion.div
-            className="overflow-hidden mb-12"
+            className="mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
