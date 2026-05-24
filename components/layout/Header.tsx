@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { brand } from "@/config/brand";
 import { Menu, X } from "lucide-react";
@@ -8,6 +9,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
+  { label: "Capabilities", href: "/capabilities" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -16,6 +18,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
+  const router = useRouter();
 
   useEffect(() => {
     return scrollY.on("change", (y) => setScrolled(y > 40));
@@ -23,8 +26,11 @@ export function Header() {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/")) {
+      router.push(href);
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
