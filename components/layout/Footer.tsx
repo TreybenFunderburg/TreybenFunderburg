@@ -31,9 +31,14 @@ export function Footer() {
             </span>
           </div>
 
-          <p className="text-xs text-center" style={{ color: "var(--text-subtle)" }}>
-            Built with Next.js · Deployed on Vercel
-          </p>
+          <div className="flex flex-col items-center gap-1">
+            <p className="text-xs text-center" style={{ color: "var(--text-subtle)" }}>
+              Charlotte, NC · {brand.email}
+            </p>
+            <p className="text-xs text-center" style={{ color: "var(--text-subtle)" }}>
+              Built with Next.js · Deployed on Vercel
+            </p>
+          </div>
 
           <div className="flex items-center gap-4">
             <a
