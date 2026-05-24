@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];

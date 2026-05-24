@@ -5,9 +5,9 @@ import { motion, useInView } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 const stats = [
-  { value: "10+", label: "Projects Delivered" },
-  { value: "5+", label: "Clients Served" },
-  { value: "100%", label: "Client Satisfaction" },
+  { value: "2–4 wk", label: "Typical Launch Time" },
+  { value: "95+", label: "Lighthouse Performance" },
+  { value: "NC", label: "Charlotte · Available worldwide" },
 ];
 
 const pillars = [
@@ -104,15 +104,15 @@ export function About() {
               </h2>
 
               <p className="text-base leading-relaxed mb-6" style={{ color: "var(--text-muted)" }}>
-                We&apos;re a focused, senior-level development studio that moves fast and builds things right.
-                No bloated teams, no endless meetings — just a small group of craftspeople who care deeply
-                about the quality and impact of every product we ship.
+                Based in Charlotte, NC, Funderworks is a focused, senior-level development studio that moves
+                fast and builds things right. No bloated teams, no endless meetings — just a small group of
+                craftspeople who care deeply about the quality and impact of every product we ship.
               </p>
 
               <p className="text-base leading-relaxed mb-10" style={{ color: "var(--text-muted)" }}>
-                Whether you need a high-converting website, a bespoke business platform, or a complex full
-                stack application, we bring the same level of technical depth and creative ambition to
-                every engagement.
+                Whether you&apos;re a contractor, a clinic, a restaurant, or a service business ready to grow
+                online, we bring the same technical depth and creative ambition to every engagement. Bigger
+                custom builds — internal tools, e-commerce, multi-location platforms — get the same standard.
               </p>
 
               <div className="accent-line mb-10" />

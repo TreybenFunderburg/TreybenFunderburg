@@ -3,11 +3,12 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, ArrowRight } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import { brand } from "@/config/brand";
+import { sendContactMessage } from "@/app/actions/contact";
 
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,20 +17,12 @@ function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    try {
-      const res = await fetch(brand.formspreeEndpoint, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    const result = await sendContactMessage(data);
+    if (result.success) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setErrorMessage(result.error);
       setStatus("error");
     }
   };
@@ -145,7 +138,7 @@ function ContactForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-sm">Something went wrong. Email us directly at {brand.email}</span>
+            <span className="text-sm">{errorMessage || `Something went wrong. Email us directly at ${brand.email}`}</span>
           </motion.div>
         ) : null}
 
@@ -266,27 +259,6 @@ export function Contact() {
               </a>
             </div>
 
-            {/* Social links */}
-            <div className="flex items-center gap-3">
-              <a
-                href={brand.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline cursor-none flex items-center gap-2 text-xs"
-              >
-                <GitHubIcon size={14} />
-                GitHub
-              </a>
-              <a
-                href={brand.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline cursor-none flex items-center gap-2 text-xs"
-              >
-                <LinkedInIcon size={14} />
-                LinkedIn
-              </a>
-            </div>
           </motion.div>
 
           {/* Right: Form */}

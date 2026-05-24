@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { brand } from "@/config/brand";
 import { Menu, X } from "lucide-react";
@@ -8,6 +9,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Work", href: "#work" },
+  { label: "Capabilities", href: "/capabilities" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -16,6 +18,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     return scrollY.on("change", (y) => setScrolled(y > 40));
@@ -23,8 +27,28 @@ export function Header() {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+
+    // Full path navigation (e.g. /capabilities)
+    if (href.startsWith("/") && !href.startsWith("/#")) {
+      router.push(href);
+      return;
+    }
+
+    // Hash anchor handling
+    const hash = href.startsWith("#") ? href : href.slice(1); // normalize "/#about" -> "#about"
+
+    // If we're not on the homepage, route to the homepage with the hash so the
+    // browser scrolls to the section after navigation
+    if (pathname !== "/") {
+      router.push(`/${hash}`);
+      return;
+    }
+
+    // We're on the homepage — scroll to the anchor
+    const el = document.querySelector(hash);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -43,7 +67,13 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <motion.button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => {
+              if (pathname !== "/") {
+                router.push("/");
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
             className="flex items-center gap-3 group cursor-none"
             whileHover={{ scale: 1.02 }}
           >

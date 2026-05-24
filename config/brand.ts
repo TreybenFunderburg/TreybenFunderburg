@@ -1,21 +1,22 @@
-// Single source of truth — swap name/tagline/links here to rebrand the entire site
+// Single source of truth — swap values here to rebrand the entire site
 export const brand = {
-  name: "Treyben Funderburg",
-  shortName: "TF",
-  tagline: "Premium Digital Products for Ambitious Businesses",
+  name: "Funderworks",
+  shortName: "FW",
+  tagline: "Modern websites for local businesses.",
   description:
-    "We build custom full stack websites, CRMs, and software that convert visitors into clients and scale with your business.",
-  eyebrow: "Full Stack Development Studio",
-  email: "funderburg.treyben@gmail.com",
+    "We build fast, beautiful sites with the systems behind them — bookings, CRMs, automations — so your business runs smoother and grows faster.",
+  eyebrow: "Charlotte Web Studio",
+  email: "hello@funderworks.com",
   github: "https://github.com/TreybenFunderburg",
-  linkedin: "https://linkedin.com",
-  // Update with your Formspree form ID: https://formspree.io
-  formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
+  linkedin: "https://linkedin.com/company/funderworks",
+  heroHeadline: ["Built", "to", "Convert."],
+  heroLocation: "Based in Charlotte, NC · Available worldwide",
   seo: {
-    title: "Treyben Funderburg — Premium Web Development & Software",
+    title: "Funderworks — Modern Websites for Local Businesses in Charlotte, NC",
     description:
-      "Custom full stack websites, CRMs, and business software built to convert and scale. High-quality digital products for ambitious businesses.",
-    keywords: "web development, full stack, CRM, business software, Next.js, TypeScript",
-    url: "https://treybenf.com",
+      "Funderworks is a Charlotte-based web studio building modern websites, CRMs, and business software for local service businesses. Fast, beautiful, built to convert.",
+    keywords:
+      "Charlotte web design, Charlotte website design, local business website, small business web design Charlotte, Carolinas web studio, Next.js development, custom CMS, CRM development, web development Charlotte NC",
+    url: "https://funderworks.com",
   },
 };
