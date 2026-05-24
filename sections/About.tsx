@@ -7,7 +7,7 @@ import { CheckCircle } from "lucide-react";
 const stats = [
   { value: "2–4 wk", label: "Typical Launch Time" },
   { value: "95+", label: "Lighthouse Performance" },
-  { value: "Charlotte, NC", label: "Studio Home Base" },
+  { value: "NC", label: "Charlotte · Available worldwide" },
 ];
 
 const pillars = [

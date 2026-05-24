@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, ArrowRight } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import { brand } from "@/config/brand";
 import { sendContactMessage } from "@/app/actions/contact";
 
@@ -260,27 +259,6 @@ export function Contact() {
               </a>
             </div>
 
-            {/* Social links */}
-            <div className="flex items-center gap-3">
-              <a
-                href={brand.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline cursor-none flex items-center gap-2 text-xs"
-              >
-                <GitHubIcon size={14} />
-                GitHub
-              </a>
-              <a
-                href={brand.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline cursor-none flex items-center gap-2 text-xs"
-              >
-                <LinkedInIcon size={14} />
-                LinkedIn
-              </a>
-            </div>
           </motion.div>
 
           {/* Right: Form */}
