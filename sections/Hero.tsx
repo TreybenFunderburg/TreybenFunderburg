@@ -180,8 +180,7 @@ export function Hero() {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const nameParts = brand.name.split(" ");
-  const heroHeadline = nameParts.join("\n");
+  const heroHeadline = brand.heroHeadline.join("\n");
 
   return (
     <section
@@ -277,6 +276,17 @@ export function Hero() {
               Our Services
             </button>
           </motion.div>
+
+          {/* Location */}
+          <motion.p
+            className="text-[10px] tracking-[0.3em] uppercase mt-6"
+            style={{ color: "var(--text-subtle)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.8 }}
+          >
+            {brand.heroLocation}
+          </motion.p>
         </div>
       </div>
 
