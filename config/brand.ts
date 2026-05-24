@@ -6,7 +6,7 @@ export const brand = {
   description:
     "We build fast, beautiful sites with the systems behind them — bookings, CRMs, automations — so your business runs smoother and grows faster.",
   eyebrow: "Charlotte Web Studio",
-  email: "hello@funderworks.com",
+  email: "hello@funderworks.studio",
   github: "https://github.com/TreybenFunderburg",
   linkedin: "https://linkedin.com/company/funderworks",
   heroHeadline: ["Built", "to", "Convert."],
@@ -17,6 +17,6 @@ export const brand = {
       "Funderworks is a Charlotte-based web studio building modern websites, CRMs, and business software for local service businesses. Fast, beautiful, built to convert.",
     keywords:
       "Charlotte web design, Charlotte website design, local business website, small business web design Charlotte, Carolinas web studio, Next.js development, custom CMS, CRM development, web development Charlotte NC",
-    url: "https://funderworks.com",
+    url: "https://funderworks.studio",
   },
 };
