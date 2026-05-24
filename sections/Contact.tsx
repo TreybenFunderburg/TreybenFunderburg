@@ -5,9 +5,11 @@ import { motion, useInView } from "framer-motion";
 import { Send, Mail, ArrowRight } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import { brand } from "@/config/brand";
+import { sendContactMessage } from "@/app/actions/contact";
 
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,20 +18,12 @@ function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    try {
-      const res = await fetch(brand.formspreeEndpoint, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    const result = await sendContactMessage(data);
+    if (result.success) {
+      setStatus("success");
+      form.reset();
+    } else {
+      setErrorMessage(result.error);
       setStatus("error");
     }
   };
@@ -145,7 +139,7 @@ function ContactForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-sm">Something went wrong. Email us directly at {brand.email}</span>
+            <span className="text-sm">{errorMessage || `Something went wrong. Email us directly at ${brand.email}`}</span>
           </motion.div>
         ) : null}
 

@@ -9,8 +9,6 @@ export const brand = {
   email: "hello@funderworks.com",
   github: "https://github.com/TreybenFunderburg",
   linkedin: "https://linkedin.com/company/funderworks",
-  // Replace with Resend endpoint in a later session
-  formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID",
   heroHeadline: ["Built", "to", "Convert."],
   heroLocation: "Based in Charlotte, NC · Available worldwide",
   seo: {
