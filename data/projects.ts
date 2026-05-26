@@ -39,4 +39,32 @@ export const projects: Project[] = [
     year: "2024",
     featured: true,
   },
+  {
+    id: 3,
+    slug: "queen-city-plumbing",
+    name: "Queen City Plumbing",
+    url: "https://queencity.funderworks.studio",
+    description:
+      "A complete local business site for a Charlotte plumbing company — built to rank locally, load fast, and convert emergency callers into booked jobs.",
+    longDescription:
+      "A complete local business site for a Charlotte plumbing company — built to rank locally, load fast, and convert emergency callers into booked jobs.",
+    tags: ["Local SEO", "Next.js", "Tailwind"],
+    category: "Spec Work",
+    year: "2026",
+    featured: true,
+  },
+  {
+    id: 4,
+    slug: "cedar-park-family-dental",
+    name: "Cedar Park Family Dental",
+    url: "https://cedarpark.funderworks.studio",
+    description:
+      "A clean, trust-forward site for a Charlotte family dental practice — calm palette, clear services, and a booking flow designed for new patient conversion.",
+    longDescription:
+      "A clean, trust-forward site for a Charlotte family dental practice — calm palette, clear services, and a booking flow designed for new patient conversion.",
+    tags: ["Local Business", "Next.js", "Tailwind"],
+    category: "Spec Work",
+    year: "2026",
+    featured: true,
+  },
 ];
