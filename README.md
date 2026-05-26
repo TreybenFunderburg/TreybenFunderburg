@@ -26,11 +26,11 @@ Open `.env.local` and fill in:
 |---|---|---|
 | `RESEND_API_KEY` | Yes | Get a free key at [resend.com](https://resend.com) |
 | `CONTACT_FROM_EMAIL` | No | Leave empty in dev — defaults to `onboarding@resend.dev` (works without domain verification) |
-| `CONTACT_TO_EMAIL` | No | Defaults to `hello@funderworks.com` |
+| `CONTACT_TO_EMAIL` | No | Defaults to `hello@funderworks.studio` |
 
 **For local testing:** leave `CONTACT_FROM_EMAIL` blank. The contact form action will use Resend's `onboarding@resend.dev` sender automatically — no domain verification needed.
 
-**For production:** set `CONTACT_FROM_EMAIL` to a verified sender on `funderworks.com` in Resend's dashboard, then add both variables in Vercel project settings.
+**For production:** set `CONTACT_FROM_EMAIL` to a verified sender on `funderworks.studio` in Resend's dashboard, then add both variables in Vercel project settings.
 
 ### 3. Run
 
@@ -49,5 +49,5 @@ Deployed on Vercel. Pushing to `main` triggers a production deploy automatically
 Set the following environment variables in Vercel project settings:
 
 - `RESEND_API_KEY`
-- `CONTACT_FROM_EMAIL` (verified funderworks.com sender)
+- `CONTACT_FROM_EMAIL` (verified funderworks.studio sender)
 - `CONTACT_TO_EMAIL`

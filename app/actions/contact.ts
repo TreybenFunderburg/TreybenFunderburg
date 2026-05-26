@@ -29,7 +29,7 @@ export async function sendContactMessage(formData: FormData): Promise<ContactRes
   try {
     await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev",
-      to: process.env.CONTACT_TO_EMAIL || "hello@funderworks.com",
+      to: process.env.CONTACT_TO_EMAIL || "hello@funderworks.studio",
       replyTo: email,
       subject: `New inquiry from ${name} — Funderworks`,
       html: `
@@ -53,16 +53,16 @@ export async function sendContactMessage(formData: FormData): Promise<ContactRes
               <td style="padding: 10px 16px; font-size: 14px; white-space: pre-wrap;">${message}</td>
             </tr>
           </table>
-          <p style="color: #999; font-size: 12px; margin-top: 24px;">Sent via funderworks.com contact form</p>
+          <p style="color: #999; font-size: 12px; margin-top: 24px;">Sent via funderworks.studio contact form</p>
         </div>
       `,
-      text: `New inquiry from ${name} — Funderworks\n\nName: ${name}\nEmail: ${email}${company ? `\nBusiness: ${company}` : ""}\n\nMessage:\n${message}\n\n---\nSent via funderworks.com contact form`,
+      text: `New inquiry from ${name} — Funderworks\n\nName: ${name}\nEmail: ${email}${company ? `\nBusiness: ${company}` : ""}\n\nMessage:\n${message}\n\n---\nSent via funderworks.studio contact form`,
     });
   } catch (err) {
     console.error("[contact] Resend error:", err);
     return {
       success: false,
-      error: "Something went wrong sending your message. Please email hello@funderworks.com directly.",
+      error: "Something went wrong sending your message. Please email hello@funderworks.studio directly.",
     };
   }
 
