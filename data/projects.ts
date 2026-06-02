@@ -15,6 +15,20 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    slug: "american-lumber-and-plywood",
+    name: "American Lumber & Plywood",
+    url: "https://lumber-and-plywood.vercel.app/",
+    description:
+      "A clean B2B site for a wholesale building materials supplier — nationwide shipping, cut-to-size services, and a buying experience built for contractors.",
+    longDescription:
+      "A clean B2B site for a wholesale building materials supplier — nationwide shipping, cut-to-size services, and a buying experience built for contractors.",
+    tags: ["Next.js", "Tailwind", "B2B", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 2,
     slug: "fun-chiropractic",
     name: "Fun Chiropractic",
     url: "https://funchiropractic.net",
@@ -23,19 +37,6 @@ export const projects: Project[] = [
       "A full-featured clinic website built to convert new patients, featuring streamlined online booking, service pages, and a professional brand presence that builds trust before the first visit.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
     category: "Healthcare",
-    year: "2024",
-    featured: true,
-  },
-  {
-    id: 2,
-    slug: "Art of Aesthetics",
-    name: "Art of Aesthetics",
-    url: "https://artofaesthetics.vercel.app/",
-    description: "Creative studio portfolio with elegant visual presentation",
-    longDescription:
-      "A sophisticated portfolio site for a creative studio that puts the work front and center, with editorial typography, refined animations, and a visual identity that speaks to high-end clientele.",
-    tags: ["Next.js", "Framer Motion", "TypeScript", "Design"],
-    category: "Creative",
     year: "2024",
     featured: true,
   },
@@ -65,6 +66,19 @@ export const projects: Project[] = [
     tags: ["Local Business", "Next.js", "Tailwind"],
     category: "Spec Work",
     year: "2026",
+    featured: true,
+  },
+  {
+    id: 5,
+    slug: "art-of-aesthetics",
+    name: "Art of Aesthetics",
+    url: "https://artofestheticsspa.com/",
+    description: "Creative studio portfolio with elegant visual presentation",
+    longDescription:
+      "A sophisticated portfolio site for a creative studio that puts the work front and center, with editorial typography, refined animations, and a visual identity that speaks to high-end clientele.",
+    tags: ["Next.js", "Framer Motion", "TypeScript", "Design"],
+    category: "Creative",
+    year: "2024",
     featured: true,
   },
 ];
