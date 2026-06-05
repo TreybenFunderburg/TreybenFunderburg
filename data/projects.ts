@@ -81,4 +81,60 @@ export const projects: Project[] = [
     year: "2024",
     featured: true,
   },
+  {
+    id: 6,
+    slug: "dc-slurry-and-striping",
+    name: "D&C Slurry & Striping",
+    url: "https://dc-slurry-and-striping.vercel.app/",
+    description:
+      "A conversion-focused site for a Southern California parking lot maintenance company with 45,000+ completed projects — services, project gallery, and a free estimate flow.",
+    longDescription:
+      "A conversion-focused site for a Southern California parking lot maintenance company with 45,000+ completed projects — services, project gallery, and a free estimate flow.",
+    tags: ["Next.js", "Tailwind", "Local Business", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 7,
+    slug: "lukkes-striping-prestige",
+    name: "Lukkes Striping — Prestige",
+    url: "https://lukkes-striping.vercel.app/prestige",
+    description:
+      "A prestige landing page for a union-certified pavement contractor targeting stadiums, theme parks, and institutional venues — credential-forward design built for high-stakes bids.",
+    longDescription:
+      "A prestige landing page for a union-certified pavement contractor targeting stadiums, theme parks, and institutional venues — credential-forward design built for high-stakes bids.",
+    tags: ["Next.js", "Tailwind", "B2B", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 8,
+    slug: "lukkes-striping-kinetic",
+    name: "Lukkes Striping — Kinetic",
+    url: "https://lukkes-striping.vercel.app/kinetic",
+    description:
+      "A bold, high-energy landing page for a union pavement contractor serving Southern California's largest venues — built for overnight mobilization requests and fast bid conversions.",
+    longDescription:
+      "A bold, high-energy landing page for a union pavement contractor serving Southern California's largest venues — built for overnight mobilization requests and fast bid conversions.",
+    tags: ["Next.js", "Tailwind", "B2B", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 9,
+    slug: "saunders-supply",
+    name: "Saunders Supply Company",
+    url: "https://saunders-supply.vercel.app/",
+    description:
+      "A modern storefront site for a 75-year-old building materials supplier in Suffolk, Virginia — organized product lines, contractor accounts, and local service info.",
+    longDescription:
+      "A modern storefront site for a 75-year-old building materials supplier in Suffolk, Virginia — organized product lines, contractor accounts, and local service info.",
+    tags: ["Next.js", "Tailwind", "Local Business", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
 ];
