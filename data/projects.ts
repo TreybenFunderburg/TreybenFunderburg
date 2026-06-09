@@ -70,19 +70,6 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    slug: "art-of-aesthetics",
-    name: "Art of Aesthetics",
-    url: "https://artofestheticsspa.com/",
-    description: "Creative studio portfolio with elegant visual presentation",
-    longDescription:
-      "A sophisticated portfolio site for a creative studio that puts the work front and center, with editorial typography, refined animations, and a visual identity that speaks to high-end clientele.",
-    tags: ["Next.js", "Framer Motion", "TypeScript", "Design"],
-    category: "Creative",
-    year: "2024",
-    featured: true,
-  },
-  {
-    id: 6,
     slug: "dc-slurry-and-striping",
     name: "D&C Slurry & Striping",
     url: "https://dc-slurry-and-striping.vercel.app/",
@@ -96,7 +83,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 7,
+    id: 6,
     slug: "lukkes-striping-prestige",
     name: "Lukkes Striping — Prestige",
     url: "https://lukkes-striping.vercel.app/prestige",
@@ -110,7 +97,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 8,
+    id: 7,
     slug: "lukkes-striping-kinetic",
     name: "Lukkes Striping — Kinetic",
     url: "https://lukkes-striping.vercel.app/kinetic",
@@ -124,7 +111,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 9,
+    id: 8,
     slug: "saunders-supply",
     name: "Saunders Supply Company",
     url: "https://saunders-supply.vercel.app/",
@@ -138,7 +125,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 10,
+    id: 9,
     slug: "vortex-express-car-wash",
     name: "Vortex Express Car Wash",
     url: "https://vortex-car-wash.vercel.app/",
@@ -152,7 +139,7 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 11,
+    id: 10,
     slug: "horyzon-studio",
     name: "Horyzon Studio",
     url: "https://house-showcase-bice.vercel.app/",
@@ -163,6 +150,33 @@ export const projects: Project[] = [
     tags: ["Next.js", "Tailwind", "Design", "Vercel"],
     category: "Creative",
     year: "2025",
+    featured: true,
+  },
+  {
+    id: 11,
+    slug: "lumiere-gala-command",
+    name: "Lumière — Gala Command Suite",
+    url: "https://events-coordinator.vercel.app/",
+    description:
+      "An elegant event management platform for high-end fundraising galas — guest intelligence, drag-and-drop seating, live auctions, and lightning-fast check-in.",
+    longDescription:
+      "An elegant event management platform for high-end fundraising galas — guest intelligence, drag-and-drop seating, live auctions, and lightning-fast check-in.",
+    tags: ["Next.js", "Tailwind", "SaaS", "Vercel"],
+    category: "Software",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 12,
+    slug: "art-of-aesthetics",
+    name: "Art of Aesthetics",
+    url: "https://artofestheticsspa.com/",
+    description: "Creative studio portfolio with elegant visual presentation",
+    longDescription:
+      "A sophisticated portfolio site for a creative studio that puts the work front and center, with editorial typography, refined animations, and a visual identity that speaks to high-end clientele.",
+    tags: ["Next.js", "Framer Motion", "TypeScript", "Design"],
+    category: "Creative",
+    year: "2024",
     featured: true,
   },
 ];
