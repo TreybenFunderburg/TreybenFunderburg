@@ -137,4 +137,32 @@ export const projects: Project[] = [
     year: "2025",
     featured: true,
   },
+  {
+    id: 10,
+    slug: "vortex-express-car-wash",
+    name: "Vortex Express Car Wash",
+    url: "https://vortex-car-wash.vercel.app/",
+    description:
+      "A space-themed site for a locally-owned express car wash in Suffolk, VA — tiered wash packages, unlimited membership signup, and fleet plan conversions.",
+    longDescription:
+      "A space-themed site for a locally-owned express car wash in Suffolk, VA — tiered wash packages, unlimited membership signup, and fleet plan conversions.",
+    tags: ["Next.js", "Tailwind", "Local Business", "Vercel"],
+    category: "Commercial",
+    year: "2025",
+    featured: true,
+  },
+  {
+    id: 11,
+    slug: "horyzon-studio",
+    name: "Horyzon Studio",
+    url: "https://house-showcase-bice.vercel.app/",
+    description:
+      "A minimal, concept-forward portfolio for a creative design studio — clean spatial layouts and refined visual presentation.",
+    longDescription:
+      "A minimal, concept-forward portfolio for a creative design studio — clean spatial layouts and refined visual presentation.",
+    tags: ["Next.js", "Tailwind", "Design", "Vercel"],
+    category: "Creative",
+    year: "2025",
+    featured: true,
+  },
 ];
