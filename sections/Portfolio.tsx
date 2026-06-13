@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import posthog from "posthog-js";
 import { projects } from "@/data/projects";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -43,6 +44,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         rel="noopener noreferrer"
         className="block"
         aria-label={`View ${project.name}`}
+        onClick={() => posthog.capture("portfolio_project_clicked", { project_name: project.name, project_url: project.url, project_category: project.category })}
       >
         <div
           className="glass glass-hover relative p-8 md:p-12 cursor-none overflow-hidden"

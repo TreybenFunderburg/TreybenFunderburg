@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 type ContactResult = { success: true } | { success: false; error: string };
 
@@ -65,6 +66,17 @@ export async function sendContactMessage(formData: FormData): Promise<ContactRes
       error: "Something went wrong sending your message. Please email hello@funderworks.studio directly.",
     };
   }
+
+  const posthog = getPostHogClient();
+  posthog.capture({
+    distinctId: email,
+    event: "contact_submitted",
+    properties: {
+      has_company: !!company,
+      message_length: message.length,
+    },
+  });
+  await posthog.shutdown();
 
   return { success: true };
 }

@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, ArrowRight } from "lucide-react";
+import posthog from "posthog-js";
 import { brand } from "@/config/brand";
 import { sendContactMessage } from "@/app/actions/contact";
 
@@ -19,9 +20,15 @@ function ContactForm() {
 
     const result = await sendContactMessage(data);
     if (result.success) {
+      posthog.capture("contact_form_submitted", {
+        has_company: !!data.get("company"),
+      });
       setStatus("success");
       form.reset();
     } else {
+      posthog.capture("contact_form_error", {
+        error: result.error,
+      });
       setErrorMessage(result.error);
       setStatus("error");
     }
@@ -240,6 +247,7 @@ export function Contact() {
                 href={`mailto:${brand.email}`}
                 className="flex items-center gap-3 text-sm group cursor-none"
                 style={{ color: "var(--text-muted)" }}
+                onClick={() => posthog.capture("contact_email_clicked")}
               >
                 <div
                   className="w-8 h-8 flex items-center justify-center"

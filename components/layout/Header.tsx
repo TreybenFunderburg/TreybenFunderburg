@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
+import posthog from "posthog-js";
 import { brand } from "@/config/brand";
 import { Menu, X } from "lucide-react";
 
@@ -112,7 +113,7 @@ export function Header() {
               </motion.button>
             ))}
             <motion.button
-              onClick={() => handleNav("#contact")}
+              onClick={() => { posthog.capture("nav_start_project_clicked", { nav_type: "desktop" }); handleNav("#contact"); }}
               className="btn-primary text-xs cursor-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -160,7 +161,7 @@ export function Header() {
                 </motion.button>
               ))}
               <motion.button
-                onClick={() => handleNav("#contact")}
+                onClick={() => { posthog.capture("nav_start_project_clicked", { nav_type: "mobile" }); handleNav("#contact"); }}
                 className="mt-4 btn-primary cursor-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

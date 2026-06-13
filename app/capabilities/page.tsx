@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CapabilitiesGrid } from "@/components/cards/CapabilitiesGrid";
+import { CapabilitiesCTA } from "@/components/ui/CapabilitiesCTA";
 
 export const metadata: Metadata = {
   title: "Capabilities — Funderworks",
@@ -70,9 +70,7 @@ export default function CapabilitiesPage() {
             Got something that doesn&apos;t fit a neat category? That&apos;s usually the most
             interesting work.
           </p>
-          <Link href="/#contact" className="btn-primary">
-            Let&apos;s talk →
-          </Link>
+          <CapabilitiesCTA />
         </div>
       </section>
     </>

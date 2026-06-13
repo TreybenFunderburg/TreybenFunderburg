@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import posthog from "posthog-js";
 import { brand } from "@/config/brand";
 
 interface Particle {
@@ -173,10 +174,12 @@ function AnimatedHeading({ text }: { text: string }) {
 
 export function Hero() {
   const scrollToContact = () => {
+    posthog.capture("hero_start_project_clicked");
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToServices = () => {
+    posthog.capture("hero_services_clicked");
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
   };
 
