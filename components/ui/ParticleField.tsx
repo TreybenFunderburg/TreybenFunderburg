@@ -42,14 +42,14 @@ export function ParticleField() {
       // Dense field — plenty of dots so the cursor interaction is obvious.
       const count = Math.floor((canvas.width * canvas.height) / 9000);
       const total = Math.min(count, 220);
-      // ~1 in 5.5 dots glows + pulses for life without being distracting.
+      // ~1 in 6.5 dots glows + pulses for life without being distracting.
       particles.current = Array.from({ length: total }, () => {
-        const glow = Math.random() < 0.18;
+        const glow = Math.random() < 0.15;
         return {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.55,
-          vy: (Math.random() - 0.5) * 0.55,
+          vx: (Math.random() - 0.5) * 0.26,
+          vy: (Math.random() - 0.5) * 0.26,
           radius: glow ? Math.random() * 1.6 + 1.2 : Math.random() * 1.3 + 0.7,
           alpha: Math.random() * 0.5 + 0.28,
           pulse: Math.random() * Math.PI * 2,
@@ -61,12 +61,12 @@ export function ParticleField() {
     };
     seed();
 
-    const LINK = 100; // particle-to-particle link distance (short = cheap w/ many dots)
+    const LINK = 110; // particle-to-particle link distance (the constellation)
     const LINK2 = LINK * LINK;
-    const MOUSE = 250; // cursor influence radius — wide so the effect is obvious
+    const MOUSE = 190; // cursor influence radius — modest so it stays subtle
     const MOUSE2 = MOUSE * MOUSE;
-    const MIN_SPEED = 0.22; // floor so the field never stalls
-    const MAX_SPEED = 1.1; // ceiling so cursor pulls stay controlled
+    const MIN_SPEED = 0.09; // floor so the field never fully stalls
+    const MAX_SPEED = 0.42; // ceiling — slow, calm drift
 
     const draw = () => {
       const w = canvas.width;
@@ -88,13 +88,15 @@ export function ParticleField() {
             const dist = Math.sqrt(d2) || 1;
             const t = 1 - dist / MOUSE;
             near = t;
-            p.vx += (dx / dist) * t * 0.16;
-            p.vy += (dy / dist) * t * 0.16;
+            // very gentle nudge — barely perceptible, just enough to feel alive
+            p.vx += (dx / dist) * t * 0.04;
+            p.vy += (dy / dist) * t * 0.04;
+            // faint, thin link to the cursor (no bright star-burst)
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(m.x, m.y);
-            ctx.strokeStyle = `rgba(${ACCENT}, ${t * 0.45})`;
-            ctx.lineWidth = 0.5 + t * 0.8;
+            ctx.strokeStyle = `rgba(${ACCENT}, ${t * 0.16})`;
+            ctx.lineWidth = 0.4 + t * 0.3;
             ctx.stroke();
           }
         }
@@ -146,7 +148,7 @@ export function ParticleField() {
 
         // Soft pulsing halo for the subset of "glower" dots (and any dot the
         // cursor is touching) — this is what gives the field life.
-        const haloStrength = p.glow ? 0.35 + 0.4 * pulse : near * 0.9;
+        const haloStrength = p.glow ? 0.35 + 0.4 * pulse : near * 0.3;
         if (haloStrength > 0.04) {
           const haloR = (p.radius + 2) * (p.glow ? 4 + pulse * 3 : 5) + near * 6;
           const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, haloR);
@@ -158,15 +160,15 @@ export function ParticleField() {
           ctx.fill();
         }
 
-        // Bright core — brighter when glowing/pulsing and near the cursor.
+        // Bright core — brighter when glowing/pulsing and slightly near cursor.
         const a =
           p.alpha * (p.glow ? 0.55 + 0.45 * pulse : 0.7 + 0.3 * pulse) +
-          near * 0.6;
+          near * 0.35;
         ctx.beginPath();
         ctx.arc(
           p.x,
           p.y,
-          p.radius + (p.glow ? pulse * 0.8 : 0) + near * 2.4,
+          p.radius + (p.glow ? pulse * 0.8 : 0) + near * 0.9,
           0,
           Math.PI * 2
         );
