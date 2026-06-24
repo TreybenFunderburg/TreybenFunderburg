@@ -167,6 +167,48 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 13,
+    slug: "mainstay-hq",
+    name: "MainstayHQ",
+    url: "https://mainstayhq.deploys.resurgence.cloud",
+    description:
+      "A property management platform that unifies units, leases, maintenance, and online rent collection into a single dashboard for landlords and property managers.",
+    longDescription:
+      "A property management SaaS that replaces the patchwork of spreadsheets and disconnected tools — track occupancy across an entire portfolio, manage individual lease details, handle maintenance requests, and collect rent online, all from one dashboard.",
+    tags: ["SaaS", "Next.js", "PropTech", "Dashboard"],
+    category: "Software",
+    year: "2026",
+    featured: true,
+  },
+  {
+    id: 14,
+    slug: "buildledger",
+    name: "BuildLedger",
+    url: "https://buildledger.deploys.resurgence.cloud/",
+    description:
+      "A construction financial platform that brings estimating, proposals, change orders, invoicing, and job costing into one place — no more re-entering data across tools.",
+    longDescription:
+      "An integrated platform for builders and contractors that runs a project from bid to closeout — estimating and takeoffs, branded proposals with e-signatures, automated change orders, client selection portals, and real-time budget-vs-actual job costing organized by custom cost codes.",
+    tags: ["SaaS", "Construction", "Next.js", "Dashboard"],
+    category: "Software",
+    year: "2026",
+    featured: true,
+  },
+  {
+    id: 15,
+    slug: "my-happy-family",
+    name: "My Happy Family",
+    url: "https://mhf-website.vercel.app/",
+    description:
+      "A corporate site for a second-generation family enterprise spanning real estate development, property management, and multi-unit franchise operations.",
+    longDescription:
+      "A polished corporate presence for My Happy Family — a family-run business operating across development, operations, and management, from residential and commercial real estate to a portfolio of Burger King franchises across Virginia and Pennsylvania. The site conveys hands-on, community-first ownership at scale.",
+    tags: ["Next.js", "Tailwind", "Corporate", "Vercel"],
+    category: "Commercial",
+    year: "2026",
+    featured: true,
+  },
+  {
     id: 12,
     slug: "art-of-aesthetics",
     name: "Art of Aesthetics",

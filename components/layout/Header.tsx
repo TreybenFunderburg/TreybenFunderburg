@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import posthog from "posthog-js";
 import { brand } from "@/config/brand";
@@ -65,7 +66,7 @@ export function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <motion.button
             onClick={() => {
@@ -78,16 +79,18 @@ export function Header() {
             className="flex items-center gap-3 group cursor-none"
             whileHover={{ scale: 1.02 }}
           >
-            <div
-              className="w-8 h-8 flex items-center justify-center text-xs font-bold"
+            <Image
+              src="/logo.png"
+              alt={`${brand.name} logo`}
+              width={68}
+              height={68}
+              priority
+              className="w-[68px] h-[68px] object-contain transition-transform duration-300 group-hover:scale-105"
               style={{
-                background: "var(--accent-cyan)",
-                color: "#000",
-                clipPath: "polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))",
+                filter:
+                  "drop-shadow(0 0 4px rgba(255, 240, 205, 0.5)) drop-shadow(0 0 16px rgba(0, 212, 255, 0.28))",
               }}
-            >
-              {brand.shortName}
-            </div>
+            />
             <span
               className="text-sm font-semibold tracking-widest uppercase hidden sm:block"
               style={{ color: "var(--text-primary)", letterSpacing: "0.15em" }}

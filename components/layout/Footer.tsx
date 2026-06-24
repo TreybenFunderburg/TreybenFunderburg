@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { brand } from "@/config/brand";
 import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
@@ -16,16 +17,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <div
-              className="w-7 h-7 flex items-center justify-center text-xs font-bold"
-              style={{
-                background: "var(--accent-cyan)",
-                color: "#000",
-                clipPath: "polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px))",
-              }}
-            >
-              {brand.shortName}
-            </div>
+            <Image
+              src="/logo.png"
+              alt={`${brand.name} logo`}
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain"
+              style={{ filter: "drop-shadow(0 0 6px rgba(0, 212, 255, 0.2))" }}
+            />
             <span className="text-xs tracking-widest uppercase" style={{ color: "var(--text-subtle)" }}>
               © {year} {brand.name}
             </span>

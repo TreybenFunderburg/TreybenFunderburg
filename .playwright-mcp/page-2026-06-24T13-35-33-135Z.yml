@@ -1,0 +1,379 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - button "Funderworks logo Funderworks" [ref=e4]:
+        - img "Funderworks logo" [ref=e5]
+        - generic [ref=e6]: Funderworks
+      - navigation [ref=e7]:
+        - button "Services" [ref=e8]
+        - button "Work" [ref=e9]
+        - button "Capabilities" [ref=e10]
+        - button "About" [ref=e11]
+        - button "Contact" [ref=e12]
+        - button "Start a Project" [ref=e13]
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e18]:
+        - generic [ref=e19]: Charlotte Web Studio
+        - generic [ref=e21]:
+          - generic [ref=e23]: Built
+          - generic [ref=e25]: to
+          - generic [ref=e27]: Convert.
+        - paragraph [ref=e29]: We build fast, beautiful sites with the systems behind them — bookings, CRMs, automations — so your business runs smoother and grows faster.
+        - generic [ref=e30]:
+          - button "Start a Project" [ref=e31]:
+            - text: Start a Project
+            - img [ref=e32]
+          - button "Our Services" [ref=e34]
+        - paragraph [ref=e35]: Based in Charlotte, NC · Available worldwide
+      - generic [ref=e36]:
+        - generic [ref=e37]: Scroll
+        - img [ref=e39]
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - generic [ref=e45]: What We Build
+        - generic [ref=e46]:
+          - heading "Our Packages" [level=2] [ref=e47]
+          - paragraph [ref=e48]: Three clear packages for businesses ready to grow online — or let's scope something custom. Pick the one that fits where you are right now.
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: "01"
+          - img [ref=e54]
+          - heading "Starter Site" [level=3] [ref=e56]
+          - paragraph [ref=e57]: A clean, fast, mobile-ready website that gets your business online. Perfect for service businesses that need a professional presence without the complexity.
+          - generic [ref=e58]:
+            - generic [ref=e59]: $2,500 + $99/mo care
+            - generic [ref=e60]: Launched in 2 weeks
+          - list [ref=e61]:
+            - listitem [ref=e62]: 5 pages
+            - listitem [ref=e64]: Mobile-first design
+            - listitem [ref=e66]: SEO basics
+            - listitem [ref=e68]: Contact form
+            - listitem [ref=e70]: Launched in 2 weeks
+        - generic [ref=e72]:
+          - generic [ref=e73]: "02"
+          - img [ref=e75]
+          - heading "Growth Site" [level=3] [ref=e79]
+          - paragraph [ref=e80]: A custom-designed site built to capture leads and rank locally. Comes with a CMS you can update yourself, booking integration, and the local SEO setup to back it up.
+          - generic [ref=e81]:
+            - generic [ref=e82]: $4,500 + $199/mo care
+            - generic [ref=e83]: Launched in 4 weeks
+          - list [ref=e84]:
+            - listitem [ref=e85]: Up to 10 pages
+            - listitem [ref=e87]: Custom design
+            - listitem [ref=e89]: CMS (edit your own content)
+            - listitem [ref=e91]: Lead capture
+            - listitem [ref=e93]: Local SEO
+            - listitem [ref=e95]: Booking integration
+        - generic [ref=e97]:
+          - generic [ref=e98]: "03"
+          - img [ref=e100]
+          - heading "Custom Build" [level=3] [ref=e102]
+          - paragraph [ref=e103]: For businesses that need something bigger — e-commerce, member portals, CRMs, integrations, or multi-location platforms. We scope it to fit exactly what you need.
+          - generic [ref=e105]: From $7,500 + $349/mo care
+          - list [ref=e106]:
+            - listitem [ref=e107]: E-commerce
+            - listitem [ref=e109]: Member portals
+            - listitem [ref=e111]: CRM systems
+            - listitem [ref=e113]: Third-party integrations
+            - listitem [ref=e115]: Multi-location support
+            - listitem [ref=e117]: Scoped per project
+      - link "Need something more specific? See our full capabilities →" [ref=e120] [cursor=pointer]:
+        - /url: /capabilities
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - generic [ref=e126]: Selected Work
+        - generic [ref=e127]:
+          - heading "Recent Projects" [level=2] [ref=e128]
+          - paragraph [ref=e129]: A growing body of work — each project built with precision, purpose, and a relentless focus on results.
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - generic: "01"
+          - link "View American Lumber & Plywood" [ref=e133] [cursor=pointer]:
+            - /url: https://lumber-and-plywood.vercel.app/
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - generic [ref=e137]:
+                  - generic [ref=e138]: Commercial
+                  - generic [ref=e139]: "2025"
+                - heading "American Lumber & Plywood" [level=3] [ref=e140]
+                - paragraph [ref=e141]: A clean B2B site for a wholesale building materials supplier — nationwide shipping, cut-to-size services, and a buying experience built for contractors.
+                - generic [ref=e142]:
+                  - generic [ref=e143]: Next.js
+                  - generic [ref=e144]: Tailwind
+                  - generic [ref=e145]: B2B
+                  - generic [ref=e146]: Vercel
+              - img [ref=e150]
+        - generic [ref=e153]:
+          - generic: "02"
+          - link "View Fun Chiropractic" [ref=e154] [cursor=pointer]:
+            - /url: https://funchiropractic.net
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - generic [ref=e159]: Healthcare
+                  - generic [ref=e160]: "2024"
+                - heading "Fun Chiropractic" [level=3] [ref=e161]
+                - paragraph [ref=e162]: A full-featured clinic website built to convert new patients, featuring streamlined online booking, service pages, and a professional brand presence that builds trust before the first visit.
+                - generic [ref=e163]:
+                  - generic [ref=e164]: Next.js
+                  - generic [ref=e165]: Tailwind CSS
+                  - generic [ref=e166]: TypeScript
+                  - generic [ref=e167]: Vercel
+              - img [ref=e171]
+        - generic [ref=e174]:
+          - generic: "03"
+          - link "View Queen City Plumbing" [ref=e175] [cursor=pointer]:
+            - /url: https://queencity.funderworks.studio
+            - generic [ref=e177]:
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - generic [ref=e180]: Spec Work
+                  - generic [ref=e181]: "2026"
+                - heading "Queen City Plumbing" [level=3] [ref=e182]
+                - paragraph [ref=e183]: A complete local business site for a Charlotte plumbing company — built to rank locally, load fast, and convert emergency callers into booked jobs.
+                - generic [ref=e184]:
+                  - generic [ref=e185]: Local SEO
+                  - generic [ref=e186]: Next.js
+                  - generic [ref=e187]: Tailwind
+              - img [ref=e191]
+        - generic [ref=e194]:
+          - generic: "04"
+          - link "View Cedar Park Family Dental" [ref=e195] [cursor=pointer]:
+            - /url: https://cedarpark.funderworks.studio
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - generic [ref=e199]:
+                  - generic [ref=e200]: Spec Work
+                  - generic [ref=e201]: "2026"
+                - heading "Cedar Park Family Dental" [level=3] [ref=e202]
+                - paragraph [ref=e203]: A clean, trust-forward site for a Charlotte family dental practice — calm palette, clear services, and a booking flow designed for new patient conversion.
+                - generic [ref=e204]:
+                  - generic [ref=e205]: Local Business
+                  - generic [ref=e206]: Next.js
+                  - generic [ref=e207]: Tailwind
+              - img [ref=e211]
+        - generic [ref=e214]:
+          - generic: "05"
+          - link "View D&C Slurry & Striping" [ref=e215] [cursor=pointer]:
+            - /url: https://dc-slurry-and-striping.vercel.app/
+            - generic [ref=e217]:
+              - generic [ref=e218]:
+                - generic [ref=e219]:
+                  - generic [ref=e220]: Commercial
+                  - generic [ref=e221]: "2025"
+                - heading "D&C Slurry & Striping" [level=3] [ref=e222]
+                - paragraph [ref=e223]: A conversion-focused site for a Southern California parking lot maintenance company with 45,000+ completed projects — services, project gallery, and a free estimate flow.
+                - generic [ref=e224]:
+                  - generic [ref=e225]: Next.js
+                  - generic [ref=e226]: Tailwind
+                  - generic [ref=e227]: Local Business
+                  - generic [ref=e228]: Vercel
+              - img [ref=e232]
+        - generic [ref=e235]:
+          - generic: "06"
+          - link "View Lukkes Striping — Prestige" [ref=e236] [cursor=pointer]:
+            - /url: https://lukkes-striping.vercel.app/prestige
+            - generic [ref=e238]:
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - generic [ref=e241]: Commercial
+                  - generic [ref=e242]: "2025"
+                - heading "Lukkes Striping — Prestige" [level=3] [ref=e243]
+                - paragraph [ref=e244]: A prestige landing page for a union-certified pavement contractor targeting stadiums, theme parks, and institutional venues — credential-forward design built for high-stakes bids.
+                - generic [ref=e245]:
+                  - generic [ref=e246]: Next.js
+                  - generic [ref=e247]: Tailwind
+                  - generic [ref=e248]: B2B
+                  - generic [ref=e249]: Vercel
+              - img [ref=e253]
+        - generic [ref=e256]:
+          - generic: "07"
+          - link "View Lukkes Striping — Kinetic" [ref=e257] [cursor=pointer]:
+            - /url: https://lukkes-striping.vercel.app/kinetic
+            - generic [ref=e259]:
+              - generic [ref=e260]:
+                - generic [ref=e261]:
+                  - generic [ref=e262]: Commercial
+                  - generic [ref=e263]: "2025"
+                - heading "Lukkes Striping — Kinetic" [level=3] [ref=e264]
+                - paragraph [ref=e265]: A bold, high-energy landing page for a union pavement contractor serving Southern California's largest venues — built for overnight mobilization requests and fast bid conversions.
+                - generic [ref=e266]:
+                  - generic [ref=e267]: Next.js
+                  - generic [ref=e268]: Tailwind
+                  - generic [ref=e269]: B2B
+                  - generic [ref=e270]: Vercel
+              - img [ref=e274]
+        - generic [ref=e277]:
+          - generic: "08"
+          - link "View Saunders Supply Company" [ref=e278] [cursor=pointer]:
+            - /url: https://saunders-supply.vercel.app/
+            - generic [ref=e280]:
+              - generic [ref=e281]:
+                - generic [ref=e282]:
+                  - generic [ref=e283]: Commercial
+                  - generic [ref=e284]: "2025"
+                - heading "Saunders Supply Company" [level=3] [ref=e285]
+                - paragraph [ref=e286]: A modern storefront site for a 75-year-old building materials supplier in Suffolk, Virginia — organized product lines, contractor accounts, and local service info.
+                - generic [ref=e287]:
+                  - generic [ref=e288]: Next.js
+                  - generic [ref=e289]: Tailwind
+                  - generic [ref=e290]: Local Business
+                  - generic [ref=e291]: Vercel
+              - img [ref=e295]
+        - generic [ref=e298]:
+          - generic: "09"
+          - link "View Vortex Express Car Wash" [ref=e299] [cursor=pointer]:
+            - /url: https://vortex-car-wash.vercel.app/
+            - generic [ref=e301]:
+              - generic [ref=e302]:
+                - generic [ref=e303]:
+                  - generic [ref=e304]: Commercial
+                  - generic [ref=e305]: "2025"
+                - heading "Vortex Express Car Wash" [level=3] [ref=e306]
+                - paragraph [ref=e307]: A space-themed site for a locally-owned express car wash in Suffolk, VA — tiered wash packages, unlimited membership signup, and fleet plan conversions.
+                - generic [ref=e308]:
+                  - generic [ref=e309]: Next.js
+                  - generic [ref=e310]: Tailwind
+                  - generic [ref=e311]: Local Business
+                  - generic [ref=e312]: Vercel
+              - img [ref=e316]
+        - generic [ref=e319]:
+          - generic: "10"
+          - link "View Horyzon Studio" [ref=e320] [cursor=pointer]:
+            - /url: https://house-showcase-bice.vercel.app/
+            - generic [ref=e322]:
+              - generic [ref=e323]:
+                - generic [ref=e324]:
+                  - generic [ref=e325]: Creative
+                  - generic [ref=e326]: "2025"
+                - heading "Horyzon Studio" [level=3] [ref=e327]
+                - paragraph [ref=e328]: A minimal, concept-forward portfolio for a creative design studio — clean spatial layouts and refined visual presentation.
+                - generic [ref=e329]:
+                  - generic [ref=e330]: Next.js
+                  - generic [ref=e331]: Tailwind
+                  - generic [ref=e332]: Design
+                  - generic [ref=e333]: Vercel
+              - img [ref=e337]
+        - generic [ref=e340]:
+          - generic: "11"
+          - link "View Lumière — Gala Command Suite" [ref=e341] [cursor=pointer]:
+            - /url: https://events-coordinator.vercel.app/
+            - generic [ref=e343]:
+              - generic [ref=e344]:
+                - generic [ref=e345]:
+                  - generic [ref=e346]: Software
+                  - generic [ref=e347]: "2025"
+                - heading "Lumière — Gala Command Suite" [level=3] [ref=e348]
+                - paragraph [ref=e349]: An elegant event management platform for high-end fundraising galas — guest intelligence, drag-and-drop seating, live auctions, and lightning-fast check-in.
+                - generic [ref=e350]:
+                  - generic [ref=e351]: Next.js
+                  - generic [ref=e352]: Tailwind
+                  - generic [ref=e353]: SaaS
+                  - generic [ref=e354]: Vercel
+              - img [ref=e358]
+        - generic [ref=e361]:
+          - generic: "12"
+          - link "View Art of Aesthetics" [ref=e362] [cursor=pointer]:
+            - /url: https://artofestheticsspa.com/
+            - generic [ref=e364]:
+              - generic [ref=e365]:
+                - generic [ref=e366]:
+                  - generic [ref=e367]: Creative
+                  - generic [ref=e368]: "2024"
+                - heading "Art of Aesthetics" [level=3] [ref=e369]
+                - paragraph [ref=e370]: A sophisticated portfolio site for a creative studio that puts the work front and center, with editorial typography, refined animations, and a visual identity that speaks to high-end clientele.
+                - generic [ref=e371]:
+                  - generic [ref=e372]: Next.js
+                  - generic [ref=e373]: Framer Motion
+                  - generic [ref=e374]: TypeScript
+                  - generic [ref=e375]: Design
+              - img [ref=e379]
+        - generic [ref=e383]:
+          - generic [ref=e384]: More Coming Soon
+          - paragraph [ref=e385]: New projects launching soon. Stay tuned.
+    - generic [ref=e388]:
+      - generic [ref=e389]:
+        - generic [ref=e390]:
+          - generic [ref=e391]: Who We Are
+          - heading "Small Team. Elite Output." [level=2] [ref=e392]:
+            - text: Small Team.
+            - text: Elite Output.
+          - paragraph [ref=e393]: Based in Charlotte, NC, Funderworks is a focused, senior-level development studio that moves fast and builds things right. No bloated teams, no endless meetings — just a small group of craftspeople who care deeply about the quality and impact of every product we ship.
+          - paragraph [ref=e394]: Whether you're a contractor, a clinic, a restaurant, or a service business ready to grow online, we bring the same technical depth and creative ambition to every engagement. Bigger custom builds — internal tools, e-commerce, multi-location platforms — get the same standard.
+        - list [ref=e396]:
+          - listitem [ref=e397]:
+            - img [ref=e398]
+            - text: Precision engineering — clean code, zero shortcuts
+          - listitem [ref=e401]:
+            - img [ref=e402]
+            - text: Speed without sacrifice — fast delivery, high quality
+          - listitem [ref=e405]:
+            - img [ref=e406]
+            - text: Business-first thinking — built to drive results
+          - listitem [ref=e409]:
+            - img [ref=e410]
+            - text: Ongoing partnership — we're invested in your growth
+      - generic [ref=e413]:
+        - generic [ref=e414]:
+          - generic [ref=e415]: 2–4 wk
+          - generic [ref=e416]: Typical Launch Time
+        - generic [ref=e417]:
+          - generic [ref=e418]: 95+
+          - generic [ref=e419]: Lighthouse Performance
+        - generic [ref=e420]:
+          - generic [ref=e421]: NC
+          - generic [ref=e422]: Charlotte · Available worldwide
+        - generic [ref=e427]:
+          - generic [ref=e428]: Currently Accepting Projects
+          - generic [ref=e429]: Limited spots available — reach out today
+    - generic [ref=e433]:
+      - generic [ref=e434]:
+        - generic [ref=e435]: Get In Touch
+        - heading "Ready to Build Something?" [level=2] [ref=e436]:
+          - text: Ready to Build
+          - text: Something?
+        - paragraph [ref=e437]: Got a project in mind? Tell us about it. Whether it's a new website, a custom platform, or an idea you haven't fully shaped yet — we're here to help you bring it to life.
+        - link "hello@funderworks.studio" [ref=e440]:
+          - /url: mailto:hello@funderworks.studio
+          - img [ref=e442]
+          - generic [ref=e445]: hello@funderworks.studio
+          - img [ref=e446]
+      - generic [ref=e448]:
+        - heading "Start the Conversation" [level=3] [ref=e449]
+        - generic [ref=e450]:
+          - generic [ref=e451]:
+            - generic [ref=e452]:
+              - generic [ref=e453]: Name
+              - textbox "Your name" [ref=e454]
+            - generic [ref=e455]:
+              - generic [ref=e456]: Email
+              - textbox "your@email.com" [ref=e457]
+          - generic [ref=e458]:
+            - generic [ref=e459]: Company / Project
+            - textbox "Your business or project name" [ref=e460]
+          - generic [ref=e461]:
+            - generic [ref=e462]: Tell us about your project
+            - textbox "Describe what you're looking to build, your timeline, budget range, etc." [ref=e463]
+          - button "Send Message" [ref=e465]:
+            - text: Send Message
+            - img [ref=e466]
+  - contentinfo [ref=e469]:
+    - generic [ref=e471]:
+      - generic [ref=e472]:
+        - img "Funderworks logo" [ref=e473]
+        - generic [ref=e474]: © 2026 Funderworks
+      - generic [ref=e475]:
+        - paragraph [ref=e476]: Charlotte, NC · hello@funderworks.studio
+        - paragraph [ref=e477]: Built with Next.js · Deployed on Vercel
+      - generic [ref=e478]:
+        - link "GitHub" [ref=e479] [cursor=pointer]:
+          - /url: https://github.com/TreybenFunderburg
+          - img [ref=e480]
+        - link "LinkedIn" [ref=e482] [cursor=pointer]:
+          - /url: https://linkedin.com/company/funderworks
+          - img [ref=e483]
+        - link "Email" [ref=e485] [cursor=pointer]:
+          - /url: mailto:hello@funderworks.studio
+          - img [ref=e486]
+  - alert [ref=e489]
