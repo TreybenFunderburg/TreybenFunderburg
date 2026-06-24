@@ -14,7 +14,7 @@ export function Services() {
       id="services"
       ref={ref}
       className="section-padding relative overflow-hidden"
-      style={{ background: "var(--bg)" }}
+      style={{ background: "radial-gradient(ellipse 90% 55% at 50% 0%, rgba(0,212,255,0.045), transparent 70%)" }}
     >
       {/* Subtle background */}
       <div className="absolute inset-0 dot-grid pointer-events-none" style={{ opacity: 0.3 }} />
@@ -30,9 +30,9 @@ export function Services() {
           <div className="eyebrow mb-6">What We Build</div>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <h2
-              className="font-display font-extrabold leading-none"
+              className="font-display font-extrabold leading-none tracking-[-0.04em]"
               style={{
-                fontFamily: "var(--font-syne)",
+                fontFamily: "var(--font-display)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                 color: "var(--text-primary)",
               }}

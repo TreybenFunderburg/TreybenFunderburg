@@ -152,7 +152,7 @@ function ContactForm() {
         {status !== "success" && (
           <motion.button
             type="submit"
-            className="btn-primary cursor-none w-full sm:w-auto flex items-center justify-center gap-2"
+            className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
             disabled={status === "sending"}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -186,7 +186,7 @@ export function Contact() {
       id="contact"
       ref={ref}
       className="section-padding relative overflow-hidden"
-      style={{ background: "var(--bg-surface)" }}
+      style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,212,255,0.05), transparent 70%)" }}
     >
       {/* Gradient background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -222,9 +222,9 @@ export function Contact() {
             <div className="eyebrow mb-8">Get In Touch</div>
 
             <h2
-              className="font-display font-extrabold leading-none mb-8"
+              className="font-display font-extrabold leading-none tracking-[-0.04em] mb-8"
               style={{
-                fontFamily: "var(--font-syne)",
+                fontFamily: "var(--font-display)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                 color: "var(--text-primary)",
               }}
@@ -245,7 +245,7 @@ export function Contact() {
             <div className="flex flex-col gap-4 mb-10">
               <a
                 href={`mailto:${brand.email}`}
-                className="flex items-center gap-3 text-sm group cursor-none"
+                className="flex items-center gap-3 text-sm group"
                 style={{ color: "var(--text-muted)" }}
                 onClick={() => posthog.capture("contact_email_clicked")}
               >
@@ -278,7 +278,7 @@ export function Contact() {
           >
             <h3
               className="font-display font-bold text-xl mb-8"
-              style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
             >
               Start the Conversation
             </h3>

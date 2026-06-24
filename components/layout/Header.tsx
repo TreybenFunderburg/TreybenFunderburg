@@ -76,7 +76,7 @@ export function Header() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
             }}
-            className="flex items-center gap-3 group cursor-none"
+            className="flex items-center gap-3 group"
             whileHover={{ scale: 1.02 }}
           >
             <Image
@@ -105,19 +105,19 @@ export function Header() {
               <motion.button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-xs tracking-widest uppercase transition-colors duration-300 cursor-none"
+                className="text-xs tracking-widest uppercase"
                 style={{ color: "var(--text-muted)" }}
-                whileHover={{ color: "var(--text-primary)" }}
+                whileHover={{ color: "var(--text-primary)", transition: { duration: 0.15 } }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i + 0.4 }}
+                transition={{ delay: 0.1 * i + 0.4, duration: 0.5 }}
               >
                 {link.label}
               </motion.button>
             ))}
             <motion.button
               onClick={() => { posthog.capture("nav_start_project_clicked", { nav_type: "desktop" }); handleNav("#contact"); }}
-              className="btn-primary text-xs cursor-none"
+              className="btn-primary text-xs"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -128,7 +128,7 @@ export function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-white cursor-none p-2"
+            className="md:hidden text-white p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -153,19 +153,19 @@ export function Header() {
                 <motion.button
                   key={link.label}
                   onClick={() => handleNav(link.href)}
-                  className="text-2xl font-display font-bold uppercase tracking-widest cursor-none"
+                  className="text-2xl font-display font-bold uppercase tracking-widest"
                   style={{ color: "var(--text-muted)" }}
-                  whileHover={{ color: "var(--accent-cyan)", x: 8 }}
+                  whileHover={{ color: "var(--accent-cyan)", x: 8, transition: { duration: 0.15 } }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
+                  transition={{ delay: 0.05 * i, duration: 0.4 }}
                 >
                   {link.label}
                 </motion.button>
               ))}
               <motion.button
                 onClick={() => { posthog.capture("nav_start_project_clicked", { nav_type: "mobile" }); handleNav("#contact"); }}
-                className="mt-4 btn-primary cursor-none"
+                className="mt-4 btn-primary"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}

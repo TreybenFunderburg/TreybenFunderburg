@@ -49,13 +49,14 @@ export function ServiceCard({ service, index }: { service: CardItem; index: numb
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      {/* Number */}
-      <div
-        className="absolute top-6 right-6 text-[10px] tracking-widest font-mono"
-        style={{ color: "var(--text-subtle)" }}
+      {/* Watermark index — big faint number behind the content */}
+      <span
+        aria-hidden="true"
+        className="absolute top-2 right-5 font-display font-extrabold leading-none pointer-events-none select-none"
+        style={{ fontSize: "5.5rem", color: "rgba(255, 255, 255, 0.035)", zIndex: 0 }}
       >
         {String(index + 1).padStart(2, "0")}
-      </div>
+      </span>
 
       {/* Icon */}
       <div
@@ -73,7 +74,7 @@ export function ServiceCard({ service, index }: { service: CardItem; index: numb
       {/* Title */}
       <h3
         className="font-display font-bold text-lg leading-tight"
-        style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+        style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
       >
         {service.title}
       </h3>

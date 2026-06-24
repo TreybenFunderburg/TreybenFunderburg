@@ -1,125 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import posthog from "posthog-js";
 import { brand } from "@/config/brand";
-
-interface Particle {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  radius: number;
-  alpha: number;
-  color: string;
-  pulse: number;
-  pulseSpeed: number;
-}
-
-const COLORS = ["#00d4ff", "#00d4ff", "#3b82f6", "#8b5cf6", "#00d4ff"];
-
-function ParticleCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const frameRef = useRef<number>(0);
-  const particles = useRef<Particle[]>([]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-
-    const count = Math.floor((window.innerWidth * window.innerHeight) / 16000);
-    particles.current = Array.from({ length: Math.min(count, 90) }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      radius: Math.random() * 1.5 + 0.5,
-      alpha: Math.random() * 0.5 + 0.1,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: Math.random() * 0.015 + 0.005,
-    }));
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const ps = particles.current;
-      for (let i = 0; i < ps.length; i++) {
-        const p = ps[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.pulse += p.pulseSpeed;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        const alpha = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse));
-
-        // Draw connections
-        for (let j = i + 1; j < ps.length; j++) {
-          const q = ps[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 120;
-          if (dist < maxDist) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(0, 212, 255, ${(1 - dist / maxDist) * 0.08})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + Math.round(alpha * 255).toString(16).padStart(2, "0");
-        ctx.fill();
-
-        // Glow
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.radius * 6);
-        gradient.addColorStop(0, p.color + "30");
-        gradient.addColorStop(1, "transparent");
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius * 6, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      }
-
-      frameRef.current = requestAnimationFrame(draw);
-    };
-
-    draw();
-    window.addEventListener("resize", resize);
-
-    return () => {
-      cancelAnimationFrame(frameRef.current);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.6 }}
-    />
-  );
-}
+import { RecentProjects } from "@/components/cards/RecentProjects";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -141,10 +26,10 @@ function AnimatedHeading({ text }: { text: string }) {
 
   return (
     <div
-      className="font-display font-extrabold tracking-tight"
+      className="font-display font-extrabold tracking-[-0.04em]"
       style={{
         fontSize: "clamp(2.5rem, 7vw, 6.5rem)",
-        fontFamily: "var(--font-syne)",
+        fontFamily: "var(--font-display)",
         color: "var(--text-primary)",
         lineHeight: 1.05,
       }}
@@ -189,10 +74,8 @@ export function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col justify-center"
-      style={{ background: "var(--bg)" }}
     >
-      {/* Particle Canvas */}
-      <ParticleCanvas />
+      {/* Ambient particle field is rendered site-wide in the root layout */}
 
       {/* Gradient Blobs — overflow-hidden lives here, not on the section */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -233,7 +116,8 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="max-w-5xl">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
+          <div className="max-w-3xl">
           {/* Eyebrow */}
           <motion.div
             className="eyebrow mb-8"
@@ -271,11 +155,11 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            <button onClick={scrollToContact} className="btn-primary cursor-none">
+            <button onClick={scrollToContact} className="btn-primary">
               Start a Project
               <ArrowRight size={14} />
             </button>
-            <button onClick={scrollToServices} className="btn-outline cursor-none">
+            <button onClick={scrollToServices} className="btn-outline">
               Our Services
             </button>
           </motion.div>
@@ -290,12 +174,18 @@ export function Hero() {
           >
             {brand.heroLocation}
           </motion.p>
+          </div>
+
+          {/* Recent Projects panel — right column */}
+          <div className="hidden lg:block">
+            <RecentProjects />
+          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 0.8 }}

@@ -20,9 +20,9 @@ export default function CapabilitiesPage() {
         <div className="max-w-7xl mx-auto px-6 pt-28 pb-16 relative">
           <div className="eyebrow mb-6">Capabilities</div>
           <h1
-            className="font-display font-extrabold leading-none mb-6"
+            className="font-display font-extrabold leading-none tracking-[-0.04em] mb-6"
             style={{
-              fontFamily: "var(--font-syne)",
+              fontFamily: "var(--font-display)",
               fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               color: "var(--text-primary)",
             }}

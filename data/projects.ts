@@ -167,6 +167,20 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 16,
+    slug: "foundry",
+    name: "Foundry",
+    url: "https://foundry.resurgence.cloud/",
+    description:
+      "A full-stack CRM and payments platform — the cloud that powers client businesses end to end, from pipelines and automations to integrated billing.",
+    longDescription:
+      "Foundry is our full CRM and payment system: a unified cloud platform that runs the back office for client businesses — contact and pipeline management, marketing automations, dashboards, and integrated payments. It's the foundation products like MainstayHQ and BuildLedger are built on.",
+    tags: ["SaaS", "CRM", "Payments", "Platform"],
+    category: "Software",
+    year: "2026",
+    featured: true,
+  },
+  {
     id: 13,
     slug: "mainstay-hq",
     name: "MainstayHQ",

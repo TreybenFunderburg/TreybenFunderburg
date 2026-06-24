@@ -38,7 +38,7 @@ export function About() {
       id="about"
       ref={ref}
       className="section-padding relative overflow-hidden"
-      style={{ background: "var(--bg)" }}
+      style={{ background: "radial-gradient(ellipse 70% 80% at 0% 40%, rgba(0,212,255,0.04), transparent 65%)" }}
     >
       {/* Background geometry */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -91,9 +91,9 @@ export function About() {
               <div className="eyebrow mb-8">Who We Are</div>
 
               <h2
-                className="font-display font-extrabold leading-none mb-8"
+                className="font-display font-extrabold leading-none tracking-[-0.04em] mb-8"
                 style={{
-                  fontFamily: "var(--font-syne)",
+                  fontFamily: "var(--font-display)",
                   fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                   color: "var(--text-primary)",
                 }}

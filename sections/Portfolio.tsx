@@ -27,9 +27,9 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
     <motion.div variants={itemVariants} className="relative group">
       {/* Large faded number */}
       <div
-        className="absolute -top-8 left-0 font-display font-extrabold leading-none pointer-events-none select-none"
+        className="absolute -top-8 left-0 font-display font-extrabold leading-none tracking-[-0.04em] pointer-events-none select-none"
         style={{
-          fontFamily: "var(--font-syne)",
+          fontFamily: "var(--font-display)",
           fontSize: "clamp(5rem, 12vw, 9rem)",
           color: "rgba(0, 212, 255, 0.04)",
           lineHeight: 1,
@@ -47,7 +47,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
         onClick={() => posthog.capture("portfolio_project_clicked", { project_name: project.name, project_url: project.url, project_category: project.category })}
       >
         <div
-          className="glass glass-hover relative p-8 md:p-12 cursor-none overflow-hidden"
+          className="glass glass-hover relative p-8 md:p-12 overflow-hidden"
           style={{ border: "1px solid var(--border)" }}
         >
           {/* Hover glow corner */}
@@ -72,7 +72,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
               <h3
                 className="font-display font-bold mb-3 group-hover:text-glow-cyan transition-all duration-300"
                 style={{
-                  fontFamily: "var(--font-syne)",
+                  fontFamily: "var(--font-display)",
                   fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
                   color: "var(--text-primary)",
                   lineHeight: 1.1,
@@ -166,7 +166,7 @@ export function Portfolio() {
       id="work"
       ref={ref}
       className="section-padding relative overflow-hidden"
-      style={{ background: "var(--bg-surface)" }}
+      style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.004) 60%)" }}
     >
       {/* Background accent */}
       <div
@@ -189,9 +189,9 @@ export function Portfolio() {
           <div className="eyebrow mb-6">Selected Work</div>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <h2
-              className="font-display font-extrabold leading-none"
+              className="font-display font-extrabold leading-none tracking-[-0.04em]"
               style={{
-                fontFamily: "var(--font-syne)",
+                fontFamily: "var(--font-display)",
                 fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
                 color: "var(--text-primary)",
               }}

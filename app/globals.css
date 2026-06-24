@@ -27,8 +27,9 @@
   --color-text-primary: var(--text-primary);
   --color-text-muted: var(--text-muted);
   --color-border: var(--border);
-  --font-display: var(--font-syne);
+  --font-display: var(--font-jakarta);
   --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
 /* ─── Base Reset ─────────────────────────────────────────────────── */
@@ -51,7 +52,26 @@ body {
   /* overflow-x: hidden would force overflow-y: auto per CSS spec, creating a
      scroll container that clips large font descenders. Use clip on a wrapper instead. */
   overflow: visible;
-  cursor: none;
+  /* Circle-with-dot cursor as a styled native cursor (zero lag — it IS the
+     OS cursor, just an SVG). Cyan to match the accent. */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Ccircle cx='11' cy='11' r='8.5' stroke='%2300d4ff' stroke-width='1.5' opacity='0.8'/%3E%3Ccircle cx='11' cy='11' r='2' fill='%2300d4ff' opacity='0.95'/%3E%3C/svg%3E") 11 11, auto;
+}
+
+/* Clickable elements get a larger, filled circle+dot to signal interactivity. */
+a,
+button,
+[role="button"],
+[data-cursor-hover],
+label[for],
+summary {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30' fill='none'%3E%3Ccircle cx='15' cy='15' r='11' stroke='%2300d4ff' stroke-width='1.5'/%3E%3Ccircle cx='15' cy='15' r='4' fill='%2300d4ff'/%3E%3C/svg%3E") 15 15, pointer;
+}
+
+/* Text fields keep a normal I-beam for usability. */
+input,
+textarea,
+select {
+  cursor: auto;
 }
 
 
@@ -126,10 +146,11 @@ body {
 
 /* ─── Glassmorphism ──────────────────────────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
 }
 
 .glass-hover {
@@ -223,8 +244,9 @@ body {
 
 /* ─── Eyebrow ────────────────────────────────────────────────────── */
 .eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.25em;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent-cyan);
   display: flex;
@@ -243,18 +265,20 @@ body {
 /* ─── Tag Chip ───────────────────────────────────────────────────── */
 .tag {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 0.25rem 0.7rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.06);
+  border: 1px solid rgba(0, 212, 255, 0.18);
   color: var(--accent-cyan);
 }
 
 /* ─── Stat Number ────────────────────────────────────────────────── */
 .stat-number {
-  font-family: var(--font-syne), sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 800;
   font-size: clamp(3rem, 8vw, 5rem);
   line-height: 1;

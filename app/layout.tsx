@@ -1,21 +1,28 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { brand } from "@/config/brand";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { CustomCursor } from "@/components/ui/CustomCursor";
+import { ParticleField } from "@/components/ui/ParticleField";
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -49,12 +56,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${jakarta.variable} ${inter.variable} ${jetbrains.variable}`}
+    >
       <body>
+        <ParticleField />
         <div className="noise-overlay" aria-hidden="true" />
-        <CustomCursor />
         <Header />
-        <main>{children}</main>
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>
