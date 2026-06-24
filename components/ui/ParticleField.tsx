@@ -42,9 +42,9 @@ export function ParticleField() {
       // Dense field — plenty of dots so the cursor interaction is obvious.
       const count = Math.floor((canvas.width * canvas.height) / 9000);
       const total = Math.min(count, 220);
-      // ~1 in 3.5 dots glows + pulses for life; the rest stay cheap.
+      // ~1 in 5.5 dots glows + pulses for life without being distracting.
       particles.current = Array.from({ length: total }, () => {
-        const glow = Math.random() < 0.28;
+        const glow = Math.random() < 0.18;
         return {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,

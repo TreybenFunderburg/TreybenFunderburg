@@ -118,6 +118,35 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
           <div className="max-w-3xl">
+          {/* Availability pill */}
+          <motion.div
+            className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 mb-6"
+            style={{
+              background: "rgba(52, 211, 153, 0.08)",
+              border: "1px solid rgba(52, 211, 153, 0.28)",
+            }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="relative flex h-2 w-2">
+              <span
+                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                style={{ background: "#34d399" }}
+              />
+              <span
+                className="relative inline-flex h-2 w-2 rounded-full"
+                style={{ background: "#34d399" }}
+              />
+            </span>
+            <span
+              className="text-[0.72rem] tracking-wide"
+              style={{ fontFamily: "var(--font-mono)", color: "#6ee7b7" }}
+            >
+              Available for new projects
+            </span>
+          </motion.div>
+
           {/* Eyebrow */}
           <motion.div
             className="eyebrow mb-8"
