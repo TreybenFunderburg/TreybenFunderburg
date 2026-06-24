@@ -11,6 +11,7 @@ interface Particle {
   alpha: number;
   pulse: number;
   pulseSpeed: number;
+  glow: boolean; // a subset of dots get a soft pulsing halo
 }
 
 const ACCENT = "0, 212, 255"; // cyan — keep in sync with --accent-cyan
@@ -40,16 +41,23 @@ export function ParticleField() {
       canvas.height = window.innerHeight;
       // Dense field — plenty of dots so the cursor interaction is obvious.
       const count = Math.floor((canvas.width * canvas.height) / 9000);
-      particles.current = Array.from({ length: Math.min(count, 220) }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 1.5 + 0.8,
-        alpha: Math.random() * 0.5 + 0.25,
-        pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.012 + 0.004,
-      }));
+      const total = Math.min(count, 220);
+      // ~1 in 3.5 dots glows + pulses for life; the rest stay cheap.
+      particles.current = Array.from({ length: total }, () => {
+        const glow = Math.random() < 0.28;
+        return {
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.55,
+          vy: (Math.random() - 0.5) * 0.55,
+          radius: glow ? Math.random() * 1.6 + 1.2 : Math.random() * 1.3 + 0.7,
+          alpha: Math.random() * 0.5 + 0.28,
+          pulse: Math.random() * Math.PI * 2,
+          // glowers pulse faster/wider so the field visibly breathes
+          pulseSpeed: (glow ? 0.02 : 0.01) + Math.random() * 0.01,
+          glow,
+        };
+      });
     };
     seed();
 
@@ -133,10 +141,35 @@ export function ParticleField() {
           }
         }
 
-        // Dot — clearly brighter and larger near the cursor.
-        const a = p.alpha * (0.7 + 0.3 * Math.sin(p.pulse)) + near * 0.6;
+        // Pulse 0..1 — used for both brightness and halo size.
+        const pulse = 0.5 + 0.5 * Math.sin(p.pulse);
+
+        // Soft pulsing halo for the subset of "glower" dots (and any dot the
+        // cursor is touching) — this is what gives the field life.
+        const haloStrength = p.glow ? 0.35 + 0.4 * pulse : near * 0.9;
+        if (haloStrength > 0.04) {
+          const haloR = (p.radius + 2) * (p.glow ? 4 + pulse * 3 : 5) + near * 6;
+          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, haloR);
+          g.addColorStop(0, `rgba(${ACCENT}, ${Math.min(haloStrength * 0.5, 0.6)})`);
+          g.addColorStop(1, `rgba(${ACCENT}, 0)`);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, haloR, 0, Math.PI * 2);
+          ctx.fillStyle = g;
+          ctx.fill();
+        }
+
+        // Bright core — brighter when glowing/pulsing and near the cursor.
+        const a =
+          p.alpha * (p.glow ? 0.55 + 0.45 * pulse : 0.7 + 0.3 * pulse) +
+          near * 0.6;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius + near * 2.4, 0, Math.PI * 2);
+        ctx.arc(
+          p.x,
+          p.y,
+          p.radius + (p.glow ? pulse * 0.8 : 0) + near * 2.4,
+          0,
+          Math.PI * 2
+        );
         ctx.fillStyle = `rgba(${ACCENT}, ${Math.min(a, 1)})`;
         ctx.fill();
       }
