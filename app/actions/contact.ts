@@ -5,6 +5,45 @@ import { getPostHogClient } from "@/lib/posthog-server";
 
 type ContactResult = { success: true } | { success: false; error: string };
 
+// Fail-soft: also record the inquiry as a contact in the Foundry platform CRM
+// (tenant "funderworks"). Never blocks or fails the form — the Resend email is
+// the primary path. Requires FORMS_SVC_URL + RESURGENCE_INTERNAL_SECRET in env.
+async function forwardToFoundry(input: {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+}): Promise<void> {
+  const base = process.env.FORMS_SVC_URL;
+  if (!base) return; // not configured yet — skip silently
+  const tenant = process.env.FOUNDRY_TENANT || "funderworks";
+  try {
+    const url = new URL(`${base.replace(/\/+$/, "")}/forms/submit`);
+    url.searchParams.set("tenant", tenant);
+    const headers: Record<string, string> = {
+      "content-type": "application/json",
+      accept: "application/json",
+      "x-tenant-slug": tenant,
+    };
+    if (process.env.RESURGENCE_INTERNAL_SECRET) {
+      headers.authorization = `Bearer ${process.env.RESURGENCE_INTERNAL_SECRET}`;
+    }
+    await fetch(url, {
+      method: "POST",
+      headers,
+      cache: "no-store",
+      body: JSON.stringify({
+        formKey: "contact",
+        name: input.name,
+        email: input.email,
+        message: input.company ? `[${input.company}] ${input.message}` : input.message,
+      }),
+    });
+  } catch (err) {
+    console.error("[contact] Foundry forward failed (non-blocking):", err);
+  }
+}
+
 // TODO: Add Upstash rate limiting once we're seeing real traffic
 export async function sendContactMessage(formData: FormData): Promise<ContactResult> {
   const name = (formData.get("name") as string | null)?.trim() ?? "";
@@ -66,6 +105,9 @@ export async function sendContactMessage(formData: FormData): Promise<ContactRes
       error: "Something went wrong sending your message. Please email hello@funderworks.studio directly.",
     };
   }
+
+  // Record the lead in Foundry CRM (fail-soft; the email already succeeded).
+  await forwardToFoundry({ name, email, company, message });
 
   const posthog = getPostHogClient();
   posthog.capture({
