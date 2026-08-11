@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, Mail, ArrowRight } from "lucide-react";
 import posthog from "posthog-js";
@@ -10,6 +10,13 @@ import { sendContactMessage } from "@/app/actions/contact";
 function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  // Paired with the honeypot below as a spam signal: the action discards
+  // submissions that arrive implausibly fast, or with no timing at all. Stamped
+  // in an effect rather than during render, which must stay pure.
+  const mountedAt = useRef<number | null>(null);
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,6 +24,8 @@ function ContactForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    // Elapsed rather than a start timestamp, so a skewed client clock cancels out.
+    data.set("elapsed", String(mountedAt.current === null ? 0 : Date.now() - mountedAt.current));
 
     const result = await sendContactMessage(data);
     if (result.success) {
@@ -67,6 +76,17 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      {/* Honeypot — invisible to people, irresistible to form-filling bots.
+          Positioned off-screen rather than display:none so that bots checking
+          computed styles still fill it. A non-empty value is discarded server-side. */}
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+      >
+        <label htmlFor="website">Website</label>
+        <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label style={labelStyle}>Name</label>
